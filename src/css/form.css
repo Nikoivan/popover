@@ -1,0 +1,15 @@
+.form {
+    margin: 200px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    color: #fff;
+    font-size: 24px;
+    padding: 10px;
+    background-color: #9c3030;
+    border-radius: 5px;
+    border-color: #9c3030;
+    
+}
