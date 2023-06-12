@@ -31,25 +31,16 @@ describe("Page start", () => {
   test("test to check method of show tooltip", async () => {
     await page.goto(baseUrl);
 
-    const body = await page.waitForSelector("body");
+    const container = await page.waitForSelector(".container");
 
-    const form = await body.$(".form");
+    const form = await container.$(".form");
     const btn = await form.$(".btn");
 
     await btn.click();
 
-    const tooltip = await body.$(".tooltip");
-    const result = {
-      tooltip: await tooltip.classList,
-      title: await tooltip.$(".tooltip-title").textContent,
-      content: await tooltip.$(".tooltip-text").textContent,
-    };
+    const result = await page.$(".tooltip");
 
-    expect(result).toEquel({
-      tooltip: "tooltip",
-      title: "Popover title",
-      content: "And here's some amazing content. It's very engaging. Right?",
-    });
+    expect(form).toBe("");
   });
 
   test("test to check method of remove tooltip", async () => {
