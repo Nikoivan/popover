@@ -38,9 +38,12 @@ describe("Page start", () => {
 
     await btn.click();
 
-    const result = await page.$(".tooltip");
+    const tooltip = await page.$(".tooltip-text");
+    const text = await page.evaluate((tooltip) => tooltip.textContent, tooltip);
 
-    expect(form).toBe("");
+    expect(text).toBe(
+      "And here's some amazing content. It's very engaging. Right?"
+    );
   });
 
   test("test to check method of remove tooltip", async () => {
